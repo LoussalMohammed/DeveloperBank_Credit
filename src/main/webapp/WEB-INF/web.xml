@@ -4,20 +4,4 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
 
-    <servlet>
-        <servlet-name>CreditRequestServlet</servlet-name>
-        <servlet-class>org.devbank.devbankcredit.web.servlets.CreditRequestServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>CreditRequestServlet</servlet-name>
-        <url-pattern>/credit-request</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>org.devbank.devbankcredit.web.servlets.HelloServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/hello-servlet</url-pattern>
-    </servlet-mapping>
 </web-app>

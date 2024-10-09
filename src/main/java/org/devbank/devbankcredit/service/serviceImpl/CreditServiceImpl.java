@@ -8,8 +8,6 @@ import org.devbank.devbankcredit.service.CreditRequestService;
 
 import jakarta.inject.Inject;
 
-import java.util.List;
-
 @ApplicationScoped
 public class CreditServiceImpl extends GenericServiceImpl <CreditRequest, Integer> implements CreditRequestService {
 
@@ -17,10 +15,6 @@ public class CreditServiceImpl extends GenericServiceImpl <CreditRequest, Intege
     public CreditServiceImpl(CreditRequestRepository creditRequestRepository, Validator validator) {
         super(creditRequestRepository, validator);
     }
-    @Override
-    public List<CreditRequest> findAll() {
-        System.out.println("here");
-        return repository.findAll();
-    }
+
 
 }

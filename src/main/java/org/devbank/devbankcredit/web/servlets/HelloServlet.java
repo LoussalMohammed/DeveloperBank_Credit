@@ -1,22 +1,30 @@
 package org.devbank.devbankcredit.web.servlets;
 
 import java.io.*;
-import java.util.List;
+import java.util.Optional;
 
 import jakarta.inject.Inject;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import org.devbank.devbankcredit.model.entity.CreditRequest;
+import org.devbank.devbankcredit.model.entity.RequestStatuses;
+import org.devbank.devbankcredit.model.entity.Status;
 import org.devbank.devbankcredit.service.CreditRequestService;
+import org.devbank.devbankcredit.service.StatusService;
 
-@WebServlet(name = "HelloServlet", value = "/hello-servlet")
+@WebServlet(name = "HelloServlet", value = "/hello-servlet", loadOnStartup = 1)
 public class HelloServlet extends HttpServlet {
     @Inject
     private CreditRequestService creditRequestService;
+
+    @Inject
+    private StatusService statusService;
+
+    @Inject
+    private RequestStatuses requestStatuses;
     private String message;
 
     public void init() {
-        message = "Hello Mohammed!";
+        System.out.println("initiated on load startup");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -28,7 +36,7 @@ public class HelloServlet extends HttpServlet {
             out.println("<h1>hey " + message + "</h1>");
 
             try {
-                List<CreditRequest> creditRequests = creditRequestService.findAll();
+                Optional<Status> creditRequests = statusService.findById(1);
                 out.println("<p>by</p>");
                 if (creditRequests.isEmpty()) {
                     out.println("<p>No credit requests found.</p>");

@@ -27,7 +27,6 @@ public abstract class GenericServiceImpl<T, ID> implements GenericService<T, ID>
 
     @Override
     public List<T> findAll() {
-        System.out.println("here");
         return repository.findAll();
     }
 
@@ -52,7 +51,7 @@ public abstract class GenericServiceImpl<T, ID> implements GenericService<T, ID>
         Set<ConstraintViolation<T>> violations = validator.validate(entity);
         if (!violations.isEmpty()) {
             StringBuilder errorMessage = new StringBuilder("Validation failed:\n");
-            violations.forEach(violation -> errorMessage.append(violation.getMessage()).append(";\n"));
+            violations.forEach(violation -> errorMessage.append(violation.getPropertyPath()).append(": ").append(violation.getMessage()).append(";\n"));
             throw new CustomValidationException(errorMessage.toString());
         }
     }

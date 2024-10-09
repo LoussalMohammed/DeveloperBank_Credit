@@ -10,7 +10,6 @@ import org.devbank.devbankcredit.model.enums.CreditRequestStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,7 +79,7 @@ public class CreditRequest {
 
     @NotNull
     @Column(name = "startDate")
-    private LocalDateTime startDate;
+    private LocalDate startDate;
 
     @NotNull
     @Column(name = "totalRevenue", columnDefinition = "DECIMAL(20, 8)")
@@ -99,6 +98,10 @@ public class CreditRequest {
     @Column(name = "status")
     private CreditRequestStatus status = CreditRequestStatus.PENDING;
 
-    @OneToMany(mappedBy = "credit_requests", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "creditRequest", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RequestStatuses> requestStatuses = new ArrayList<>();
+
+    public boolean getHasOnGoingCredits() {
+        return hasOngoingCredits;
+    }
 }

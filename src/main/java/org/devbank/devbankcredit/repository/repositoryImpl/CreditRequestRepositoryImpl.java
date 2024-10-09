@@ -1,6 +1,7 @@
 package org.devbank.devbankcredit.repository.repositoryImpl;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.Getter;
 import lombok.Setter;
 import org.devbank.devbankcredit.model.entity.CreditRequest;
@@ -14,4 +15,5 @@ public class CreditRequestRepositoryImpl extends GenericRepositoryImpl <CreditRe
     public CreditRequestRepositoryImpl() {
         super(CreditRequest.class);
     }
+
 }
