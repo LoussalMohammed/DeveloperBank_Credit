@@ -11,33 +11,34 @@
 <html>
 <head>
     <title>Admin Page</title>
+    <!--- Css Style Links --->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
     <table>
-        <tr>
-            <td>id</td>
-            <td>civility</td>
-            <td>first name</td>
-            <td>last name</td>
-            <td>cin</td>
-            <td>born date</td>
-            <td>job</td>
-            <td>has onGoing credits</td>
-            <td>project</td>
-            <td>amount</td>
-            <td>monthly payments</td>
-            <td>start date</td>
-            <td>total revenue</td>
-            <td>status</td>
+        <thead class="table-header">
+            <th>civility</th>
+            <th>name</th>
+            <th>cin</th>
+            <th>born date</th>
+            <th>job</th>
+            <th>Have credits</th>
+            <th>project</th>
+            <th>amount</th>
+            <th>monthly payments</th>
+            <th>start date</th>
+            <th>total revenue</th>
+            <th>status</th>
+            <th>Edit</th>
+        </thead>
 
             <%
                 List<CreditRequest> creditRequests = (List<CreditRequest>) request.getAttribute("creditRequests");
                 for(CreditRequest creditRequest: creditRequests) {
             %>
-            <td><%=creditRequest.getId()%></td>
+        <tr>
             <td><%=creditRequest.getCivility()%></td>
-            <td><%=creditRequest.getFirstName()%></td>
-            <td><%=creditRequest.getLastName()%></td>
+            <td><%=creditRequest.getFirstName()+" "+creditRequest.getLastName()%></td>
             <td><%=creditRequest.getCin()%></td>
             <td><%=creditRequest.getBornDate()%></td>
             <td><%=creditRequest.getJob()%></td>
@@ -48,7 +49,15 @@
             <td><%=creditRequest.getStartDate()%></td>
             <td><%=creditRequest.getTotalRevenue()%></td>
             <td><%=creditRequest.getStatus()%></td>
+            <td>
+                <form action="${pageContext.request.contextPath}/admin" method="post">
+                    <input type="hidden" name="id" value="<%=creditRequest.getId()%>">
+                    <button id="edit-btn" type="submit">edit</button>
+                </form>
+                </td>
         </tr>
+
+        <% } %>
     </table>
 </body>
 </html>

@@ -135,4 +135,61 @@ button:hover {
   max-width: 500px;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+td {
+  color: #333;
+}
+
+.table-header {
+  background-color: #c6db09;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+
+#edit-btn {
+  width: 70px;
+  border: 1px solid black;
+  box-shadow: 0 0.159rem 0.018rem 1px gray;
+  background: #c6db09;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+#edit-btn a:hover {
+  background-color: #d23c0d;
+}
+
 /*# sourceMappingURL=styles.css.map */
